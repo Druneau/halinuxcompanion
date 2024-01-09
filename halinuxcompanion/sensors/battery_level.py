@@ -5,7 +5,7 @@ import psutil
 BatteryLevel = Sensor()
 BatteryLevel.config_name = "battery_level"
 BatteryLevel.attributes = {
-        "time_left": "",
+    "time_left": "",
 }
 
 BatteryLevel.device_class = "battery"
@@ -24,7 +24,7 @@ def updater(self):
         minutes, seconds = divmod(data.secsleft, 60)
         hours, minutes = divmod(minutes, 60)
 
-        self.state = round(data.percent)
+        self.state = round(data.percent, 2)
         self.icon = "mdi:battery-%d0" % round(data.percent / 10)
         self.attributes["time_left"] = "%d:%02d:%02d" % (hours, minutes, seconds)
 
