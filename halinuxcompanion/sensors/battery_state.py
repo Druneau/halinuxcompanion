@@ -19,6 +19,9 @@ def updater(self):
         if data.power_plugged:
             self.state = "charging"
             self.icon = "mdi:battery-plus"
+        elif data.power_plugged is None:
+            self.state = "not charging"
+            self.icon = "mdi:battery"
         else:
             self.state = "discharging"
             self.icon = "mdi:battery-minus"
